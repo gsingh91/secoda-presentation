@@ -122,7 +122,7 @@ if __name__ == "__main__":
             tables_to_update.append(table)
 
     if not tables_to_update:
-        print("\nNo tables found with available descriptions in Google Sheet.")
+        print("\nNo tables found with available descriptions in Google Sheet, exiting.")
         exit(0)
 
     # Ask user confirmation
