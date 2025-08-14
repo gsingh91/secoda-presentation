@@ -90,6 +90,8 @@ def update_table_description(table_id, description):
 
 if __name__ == "__main__":
 
+    # Get tables without descriptions
+    print("Fetching tables without descriptions...")
     tables_without_desc = tables_without_desc()
 
     if not tables_without_desc:
@@ -102,11 +104,14 @@ if __name__ == "__main__":
         table_name = table.get("title")
         print(f"{table_id} : {table['title']}")
 
+    # Read descriptions from Google Sheet
+    print("\nReading table descriptions from Google Sheet...")
     description_map = read_google_sheet()
     print(
         f"\nRead {len(description_map)} tables with descriptions from Google Sheet \n"
     )
 
+    # Check if descriptions are available for tables without descriptions
     print("\nChecking for tables with available descriptions...\n")
     tables_to_update = []
     for table in tables_without_desc:

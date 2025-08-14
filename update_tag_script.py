@@ -64,7 +64,6 @@ def add_tag(column_id,tag_id):
 if __name__ == "__main__":
     
     # Get all tags
-    #SECODA_API_KEY = os.getenv("SECODA_API_KEY")
     response = requests.get(
         "https://app.secoda.co/api/v1/tag",
         headers={
@@ -86,6 +85,7 @@ if __name__ == "__main__":
     else:
         print("'Return Data' tag already exists")
 
+    # Get the ID of the 'Return Data' tag
     return_data_tag_id = next((tag.get('id') for tag in tags if tag.get('name') == 'Return Data'), None)
 
     # Filter tables that have 'returns' in their title
@@ -103,7 +103,7 @@ if __name__ == "__main__":
         if 'Returns' in table_title or 'returns' in table_title:
             matching_tables.append(table)
 
-    #
+    # Check if any tables were found
     if not matching_tables:
         print("No tables found with 'returns' in their title, exiting.")
         exit(0)
@@ -129,7 +129,7 @@ if __name__ == "__main__":
                 column_name = column.get('title')
                 column_id = column.get('id')
 
-                #    Add tag to column
+                # Add tag to column
                 success = add_tag(column_id,return_data_tag_id)
                 if success:
                     column_tagged += 1
