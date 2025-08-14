@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Secoda Update column Script:
-Creates a new tag 'Return Data' in Secoda and optionally tags all columns in tables with 'returns' in their title.
+Creates a new tag 'Return Data' in Secoda and tags all columns in tables with 'returns' in their title.
 
 Requirements:
     SECODA_API_KEY
