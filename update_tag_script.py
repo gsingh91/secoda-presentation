@@ -132,6 +132,9 @@ if __name__ == "__main__":
                 # Add tag to column
                 success = add_tag(column_id,return_data_tag_id)
                 if success:
+                    print(f"Tagged column '{column_name}' in table '{table.get('title')}' with 'Return Data'.")
                     column_tagged += 1
+                else:
+                    print(f"Failed to tag column '{column_name}' in table '{table.get('title')}'.")
     else:
         print("Operation cancelled by user.")
